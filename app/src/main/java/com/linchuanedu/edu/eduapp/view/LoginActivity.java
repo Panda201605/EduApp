@@ -74,12 +74,12 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener,
 //    WindowManager.LayoutParams.FLAG_FULLSCREEN );
 
         setContentView(R.layout.activity_login);
-        et_name = (EditText) findViewById(R.id.username);
-        et_pass = (EditText) findViewById(R.id.password);
+        et_name = (EditText) findViewById(R.id.login_user_name_text);
+        et_pass = (EditText) findViewById(R.id.login_password_text);
 
-        bt_username_clear = (Button) findViewById(R.id.bt_username_clear);
-        bt_pwd_clear = (Button) findViewById(R.id.bt_pwd_clear);
-        bt_pwd_eye = (Button) findViewById(R.id.bt_pwd_eye);
+        bt_username_clear = (Button) findViewById(R.id.login_user_name_clear_bt);
+        bt_pwd_clear = (Button) findViewById(R.id.login_pwd_clear_bt);
+        bt_pwd_eye = (Button) findViewById(R.id.login_pwd_eye_bt);
         bt_username_clear.setOnClickListener(this);
         bt_pwd_clear.setOnClickListener(this);
         bt_pwd_eye.setOnClickListener(this);
@@ -87,9 +87,9 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener,
         et_name.addTextChangedListener(username_watcher);
         et_pass.addTextChangedListener(password_watcher);
 
-        mLoginButton = (Button) findViewById(R.id.login);
-        mLoginError = (Button) findViewById(R.id.login_error);
-        mRegister = (Button) findViewById(R.id.register);
+        mLoginButton = (Button) findViewById(R.id.login_login_bt);
+        mLoginError = (Button) findViewById(R.id.login_password_forget_bt);
+        mRegister = (Button) findViewById(R.id.login_register_bt);
         ONLYTEST = (Button) findViewById(R.id.registfer);
         ONLYTEST.setOnClickListener(this);
         ONLYTEST.setOnLongClickListener((OnLongClickListener) this);
@@ -149,16 +149,16 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener,
     public void onClick(View arg0) {
         // TODO Auto-generated method stub
         switch (arg0.getId()) {
-            case R.id.login:  //登陆
+            case R.id.login_login_bt:  //登陆
 //   login();
                 startActivity(new Intent(LoginActivity.this,MainActivity.class));
                 break;
-            case R.id.login_error: //无法登陆(忘记密码了吧)
+            case R.id.login_password_forget_bt: //无法登陆(忘记密码了吧)
 //   Intent login_error_intent=new Intent();
 //   login_error_intent.setClass(LoginActivity.this, ForgetCodeActivity.class);
 //   startActivity(login_error_intent);
                 break;
-            case R.id.register:    //注册新的用户
+            case R.id.login_register_bt:    //注册新的用户
 //   Intent intent=new Intent();
 //   intent.setClass(LoginActivity.this, ValidatePhoneNumActivity.class);
 //   startActivity(intent);
@@ -171,14 +171,14 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener,
                 }
                 SERVER_FLAG++;
                 break;
-            case R.id.bt_username_clear:
+            case R.id.login_user_name_clear_bt:
                 et_name.setText("");
                 et_pass.setText("");
                 break;
-            case R.id.bt_pwd_clear:
+            case R.id.login_pwd_clear_bt:
                 et_pass.setText("");
                 break;
-            case R.id.bt_pwd_eye:
+            case R.id.login_pwd_eye_bt:
                 if (et_pass.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
                     bt_pwd_eye.setBackgroundResource(R.drawable.button_eye_s);
                     et_pass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_NORMAL);
